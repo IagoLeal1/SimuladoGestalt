@@ -1,5 +1,4 @@
 // src/App.tsx
-import React from 'react';
 import SimuladoApp from './SimuladoApp'; // Importa o componente principal do simulado
 import './App.css'; // Importa um CSS global para o layout principal
 

@@ -278,6 +278,7 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.5); /* Anel de foco verde */
     transform: scale(1.02); /* Escala ligeiramente */
+    opacity: 1; /* Adicionado para garantir que a resposta correta não seja atenuada */
   }
   
   /* Opção incorreta selecionada (após feedback) */
