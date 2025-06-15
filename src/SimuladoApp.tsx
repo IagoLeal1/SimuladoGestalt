@@ -1,10 +1,11 @@
-// src/SimuladoApp.jsx ou src/SimuladoApp.tsx
+// src/SimuladoApp.tsx
 
 import { useState } from 'react';
 import './SimuladoApp.css'; // Importa os estilos CSS
+import type { Pergunta } from './types'; // CORRIGIDO: Agora usa 'import type' para importação de tipo
 
 // --- Questões de Gestalt-terapia hardcoded dos seus PDFs ---
-const initialPerguntas = [
+const initialPerguntas: Pergunta[] = [ // Adicionado tipagem Pergunta[]
   // Do PDF: Novas_Questões_Objetivas_sobre_Gestalt-terapia_(Es.pdf
   {
     id: 'es-q16',
@@ -253,7 +254,7 @@ const initialPerguntas = [
     questao: "O conceito de campo é fundamental na Gestalt-terapia, pois enfatiza a interdependência entre o organismo e o ambiente. Sobre o campo fenomenológico, assinale a alternativa INCORRETA:",
     opcoes: [
       "a) O campo é uma totalidade dinâmica, onde cada parte influencia e é influenciada pelas demais, não podendo ser compreendido isoladamente.",
-      "b) A relação figura-fundo é um processo contínuo no campo, onde o que é percebido como figura emerge do fundo e, uma vez satisfeita a necessidade, retorna ao fundo.",
+      "b) A relação figura-fundo é um processo contínuo no campo, onde o que é percebido como figura emerge do fundo e, uma vez satisfeito a necessidade, retorna ao fundo.",
       "c) O terapeuta gestaltista atua como um observador neutro do campo do cliente, evitando qualquer tipo de intervenção para não distorcer a experiência.",
       "d) A awareness do campo permite ao indivíduo perceber como ele e o ambiente se organizam e se influenciam mutuamente no presente.",
       "e) O campo não se restringe ao espaço físico, incluindo também aspectos psicológicos, sociais, culturais e históricos que influenciam a experiência do indivíduo."
@@ -371,17 +372,15 @@ const initialPerguntas = [
 ];
 
 const SimuladoApp = () => {
-  // Inicializamos as perguntas diretamente com o array hardcoded
-  const [perguntas] = useState(initialPerguntas);
-  const [perguntaAtualIndex, setPerguntaAtualIndex] = useState(0);
-  const [opcaoSelecionada, setOpcaoSelecionada] = useState(null);
-  const [mostrandoFeedback, setMostrandoFeedback] = useState(false);
-  const [respostaCorretaFeedback, setRespostaCorretaFeedback] = useState(false);
-  // Estados relacionados ao PDF e carregamento são removidos, pois não são mais relevantes
-  const [acertos, setAcertos] = useState(0);
-  const [simuladoTerminado, setSimuladoTerminado] = useState(false);
+  const [perguntas] = useState<Pergunta[]>(initialPerguntas); // Tipado para Pergunta[]
+  const [perguntaAtualIndex, setPerguntaAtualIndex] = useState<number>(0); // Tipado para number
+  const [opcaoSelecionada, setOpcaoSelecionada] = useState<string | null>(null); // Tipado para string | null
+  const [mostrandoFeedback, setMostrandoFeedback] = useState<boolean>(false); // Tipado para boolean
+  const [respostaCorretaFeedback, setRespostaCorretaFeedback] = useState<boolean>(false); // Tipado para boolean
+  const [acertos, setAcertos] = useState<number>(0); // Tipado para number
+  const [simuladoTerminado, setSimuladoTerminado] = useState<boolean>(false); // Tipado para boolean
 
-  const handleSelecionarOpcao = (opcao) => {
+  const handleSelecionarOpcao = (opcao: string) => { // Tipado o parâmetro 'opcao' como string
     if (!mostrandoFeedback) {
       setOpcaoSelecionada(opcao);
     }
@@ -394,8 +393,8 @@ const SimuladoApp = () => {
     }
 
     const perguntaAtual = perguntas[perguntaAtualIndex];
-    // Compara o início da string da opção selecionada com a letra da resposta correta
-    const isCorrect = opcaoSelecionada.toLowerCase().startsWith(perguntaAtual.respostaCorreta.toLowerCase() + ')');
+    // Garantimos que 'opcaoSelecionada' é uma string antes de chamar 'toLowerCase()'
+    const isCorrect = (opcaoSelecionada as string).toLowerCase().startsWith(perguntaAtual.respostaCorreta.toLowerCase() + ')');
 
     setMostrandoFeedback(true);
     setRespostaCorretaFeedback(isCorrect);
@@ -410,11 +409,10 @@ const SimuladoApp = () => {
     setOpcaoSelecionada(null);
     setRespostaCorretaFeedback(false);
 
-    // Verifica se é a última questão do array hardcoded
     if (perguntaAtualIndex < perguntas.length - 1) {
       setPerguntaAtualIndex(perguntaAtualIndex + 1);
     } else {
-      setSimuladoTerminado(true); // Termina o simulado ao chegar na última questão
+      setSimuladoTerminado(true);
     }
   };
 
@@ -427,16 +425,13 @@ const SimuladoApp = () => {
     setSimuladoTerminado(false);
   };
 
-  // Obtém a pergunta atual para renderização
   const perguntaAtual = perguntas[perguntaAtualIndex];
 
   return (
     <div className="simulado-container">
-      {/* O título e a descrição são sempre mostrados */}
       <h1 className="simulado-title">📚 Simulado de Gestalt-terapia</h1>
       <p className="simulado-description">Este simulado contém questões sobre Gestalt-terapia.</p>
 
-      {/* Renderização condicional da tela final ou das questões */}
       {simuladoTerminado ? (
         <div className="final-screen">
           <h2 className="simulado-title">🎉 Parabéns! 🎉</h2>
@@ -445,14 +440,13 @@ const SimuladoApp = () => {
           <div className="action-buttons-container">
             <button
               onClick={handleReiniciarSimulado}
-              className="confirm-button" // Reutiliza o estilo do botão de confirmação
+              className="confirm-button"
             >
               Reiniciar Simulado
             </button>
           </div>
         </div>
       ) : (
-        // Renderiza a questão se o simulado não terminou
         perguntaAtual ? (
           <div className="question-section">
             <div className="question-header">
@@ -465,22 +459,19 @@ const SimuladoApp = () => {
             </div>
             <p className="question-text">{perguntaAtual.questao}</p>
             <div className="options-container">
-              {perguntaAtual.opcoes.map((opcao, index) => {
+              {perguntas[perguntaAtualIndex].opcoes.map((opcao: string, index: number) => { // Acessando perguntas[perguntaAtualIndex].opcoes diretamente
                 let optionClasses = "option-item";
 
                 if (mostrandoFeedback) {
                   const respostaCorretaLetra = perguntaAtual.respostaCorreta.toLowerCase();
                   const opcaoMinusc = opcao.toLowerCase();
 
-                  // Sempre marca a correta, independente da seleção do usuário
                   if (opcaoMinusc.startsWith(respostaCorretaLetra + ')')) {
                     optionClasses += ' option-correct';
                   }
-                  // Se a opção foi selecionada pelo usuário E está incorreta
                   if (opcao === opcaoSelecionada && !respostaCorretaFeedback) {
                     optionClasses += ' option-incorrect';
                   }
-                  // Se não foi a correta E não foi a selecionada incorretamente (outras opções erradas)
                   else if (!opcaoMinusc.startsWith(respostaCorretaLetra + ')') && opcao !== opcaoSelecionada) {
                      optionClasses += ' option-disabled';
                   }
@@ -493,7 +484,7 @@ const SimuladoApp = () => {
                 }
 
                 if (mostrandoFeedback) {
-                  optionClasses += ' pointer-events-none'; // Desabilita cliques após feedback
+                  optionClasses += ' pointer-events-none';
                 }
 
                 return (
@@ -532,7 +523,6 @@ const SimuladoApp = () => {
             </div>
           </div>
         ) : (
-          // Mensagem caso o array de perguntas esteja vazio (embora não deva acontecer com hardcode)
           <div className="initial-message">
             <span role="img" aria-label="Warning Icon" className="initial-icon">⚠️</span>
             <h2 className="initial-title">Erro: Nenhuma Questão Carregada!</h2>
