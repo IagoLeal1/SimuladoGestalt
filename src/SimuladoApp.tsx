@@ -1,6 +1,6 @@
 // src/SimuladoApp.jsx ou src/SimuladoApp.tsx
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './SimuladoApp.css'; // Importa os estilos CSS
 
 // --- Questões de Gestalt-terapia hardcoded dos seus PDFs ---
