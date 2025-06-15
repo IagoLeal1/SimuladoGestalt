@@ -1,0 +1,548 @@
+/* src/SimuladoApp.css */
+
+/* Base styles for larger screens (desktop first approach) */
+
+/* Container principal do simulado */
+.simulado-container {
+    background-color: #ffffff; /* Fundo branco puro */
+    padding: 2.5rem; /* Aumenta o padding um pouco */
+    border-radius: 1.5rem; /* Cantos bem arredondados */
+    /* Sombra mais suave e profunda */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08), 0 5px 10px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 52rem; /* Aumenta a largura máxima para mais espaço */
+    transform: translateY(0); /* Garante posição inicial */
+    transition: all 0.4s ease-in-out; /* Transição mais suave e longa */
+    border: 1px solid #e0e7ff; /* Borda sutil em tom de azul claro */
+    box-sizing: border-box; /* Inclui padding e borda na largura/altura */
+  }
+  
+  /* Efeito ao passar o mouse */
+  .simulado-container:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12), 0 7px 15px rgba(0, 0, 0, 0.08);
+    transform: translateY(-5px); /* Leve levantamento */
+  }
+  
+  /* Título principal do simulado */
+  .simulado-title {
+    font-size: 3.5rem; /* Texto ainda maior */
+    font-weight: 800; /* Extra bold */
+    text-align: center;
+    color: #312e81; /* Um azul mais escuro e sóbrio */
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Sombra de texto mais notável */
+    line-height: 1.2;
+  }
+  
+  /* Descrição abaixo do título */
+  .simulado-description {
+    text-align: center;
+    color: #4a5568; /* Tom de cinza mais escuro */
+    margin-bottom: 3rem; /* Mais espaço */
+    font-size: 1.25rem; /* Texto maior */
+    line-height: 1.6;
+    max-width: 42rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* --- Seção de Upload (mesmo que não esteja em uso, mantemos responsivo) --- */
+  .upload-section {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    border: 2px dashed #93c5fd; /* Borda tracejada em azul claro */
+    border-radius: 1.25rem; /* Arredondamento */
+    background-color: #e0f2fe; /* Azul muito claro, quase branco */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+  }
+  
+  .upload-section:hover {
+    border-color: #60a5fa; /* Azul mais vibrante no hover */
+    background-color: #dbeafe; /* Um pouco mais escuro no hover */
+  }
+  
+  .upload-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem; /* Aumenta o tamanho da label */
+    font-weight: 700; /* Bold */
+    color: #1e40af; /* Azul escuro */
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+  }
+  
+  .upload-icon {
+    display: inline-block;
+    margin-right: 0.75rem;
+    font-size: 2.5rem; /* Ícone maior */
+  }
+  
+  .upload-input {
+    display: block;
+    width: 100%;
+    font-size: 1.125rem;
+    color: #374151;
+    cursor: pointer;
+    padding: 0.75rem 0;
+  }
+  
+  /* Estilos para o botão "file" dentro do input */
+  .upload-input::file-selector-button {
+    margin-right: 1.5rem;
+    padding: 0.875rem 2rem; /* Aumenta padding do botão */
+    border-radius: 9999px;
+    border: 0;
+    font-size: 1.125rem;
+    font-weight: 700;
+    background-color: #60a5fa; /* Azul mais forte */
+    color: #ffffff; /* Texto branco */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: inherit;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .upload-input::file-selector-button:hover {
+    background-color: #3b82f6; /* Azul ainda mais forte */
+    transform: translateY(-2px); /* Efeito de elevação */
+  }
+  
+  .upload-input:disabled::file-selector-button {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  .upload-input:focus::file-selector-button {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.5); /* Anel de foco azul */
+  }
+  
+  .loading-message {
+    text-align: center;
+    color: #3b82f6;
+    margin-top: 1.5rem;
+    font-weight: 500;
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .loading-spinner {
+    display: inline-block;
+    margin-right: 0.75rem;
+    font-size: 1.5rem;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+  }
+  
+  .error-message {
+    text-align: center;
+    color: #ef4444; /* Vermelho mais vibrante */
+    margin-top: 1.5rem;
+    font-weight: 700;
+    font-size: 1.25rem;
+    padding: 1rem;
+    background-color: #fee2e2; /* Fundo vermelho claro */
+    border-radius: 0.75rem;
+    border: 1px solid #f87171;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .error-icon {
+    display: inline-block;
+    margin-right: 0.5rem;
+    font-size: 1.75rem;
+  }
+  
+  /* --- Seção de Perguntas --- */
+  .question-section {
+    margin-bottom: 3rem;
+    padding: 2.5rem;
+    border: 1px solid #d1d5db; /* Borda mais suave */
+    border-radius: 1.25rem;
+    background-color: #f8fafc; /* Azul muito, muito claro */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+  }
+  
+  .question-section:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .question-header {
+    font-size: 1.5rem; /* Aumenta fonte do header */
+    font-weight: 700;
+    color: #374151;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .question-number {
+    color: #2563eb; /* Azul mais forte para o número da questão */
+  }
+  
+  .feedback-status {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #6b7280;
+    background-color: #e5e7eb;
+    padding: 0.35rem 0.85rem; /* Ajusta padding */
+    border-radius: 9999px;
+  }
+  
+  .feedback-correct {
+    color: #10b981; /* Verde esmeralda */
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+  }
+  
+  .feedback-incorrect {
+    color: #ef4444; /* Vermelho mais forte */
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+  }
+  
+  .question-text {
+    font-size: 1.75rem; /* Texto da pergunta maior */
+    font-weight: 600;
+    color: #1f2937; /* Cinza escuro */
+    line-height: 1.5;
+    margin-bottom: 2rem;
+  }
+  
+  .options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  
+  .option-item {
+    padding: 1.25rem;
+    border-radius: 0.75rem;
+    border: 2px solid;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    color: #374151;
+    font-weight: 500;
+    font-size: 1.125rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  .option-icon {
+    margin-right: 0.75rem;
+    font-size: 1.5rem; /* Ícone um pouco maior */
+  }
+  
+  /* Opção padrão */
+  .option-default {
+    background-color: #ffffff;
+    border-color: #e5e7eb;
+  }
+  .option-default:hover {
+    background-color: #f3f4f6; /* Cinza muito claro */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px); /* Leve levantamento */
+  }
+  
+  /* Opção selecionada antes do feedback */
+  .option-selected {
+    background-color: #dbeafe; /* Azul claro */
+    border-color: #3b82f6; /* Azul vibrante */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.4); /* Anel de foco azul */
+  }
+  
+  /* Opção correta (após feedback) */
+  .option-correct {
+    background-color: #d1fae5; /* Verde menta */
+    border-color: #10b981; /* Verde esmeralda */
+    color: #065f46; /* Verde escuro */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.5); /* Anel de foco verde */
+    transform: scale(1.02); /* Escala ligeiramente */
+  }
+  
+  /* Opção incorreta selecionada (após feedback) */
+  .option-incorrect {
+    background-color: #fee2e2; /* Vermelho muito claro */
+    border-color: #ef4444; /* Vermelho forte */
+    color: #991b1b; /* Vermelho escuro */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    text-decoration: line-through;
+    box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.5); /* Anel de foco vermelho */
+    transform: scale(1.02); /* Escala ligeiramente */
+  }
+  
+  /* Outras opções desabilitadas após feedback */
+  .option-disabled {
+    background-color: #f3f4f6;
+    border-color: #e5e7eb;
+    opacity: 0.6;
+  }
+  
+  .pointer-events-none {
+    cursor: default !important;
+  }
+  
+  /* --- Botões de Ação --- */
+  .action-buttons-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 3.5rem;
+  }
+  
+  .confirm-button,
+  .next-button {
+    padding: 1.25rem 3.5rem; /* Padding maior */
+    border-radius: 9999px;
+    font-size: 1.75rem; /* Texto maior nos botões */
+    font-weight: 800;
+    color: #fff;
+    border: none;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    transform: scale(1);
+    cursor: pointer;
+    letter-spacing: 0.025em; /* Leve espaçamento entre letras */
+  }
+  
+  .confirm-button {
+    background-color: #3b82f6; /* Azul principal */
+  }
+  
+  .confirm-button:hover {
+    background-color: #2563eb; /* Azul mais escuro no hover */
+    transform: scale(1.05);
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.15), 0 6px 8px rgba(0, 0, 0, 0.08);
+  }
+  
+  .confirm-button:active {
+    transform: scale(0.95);
+  }
+  
+  .confirm-button:disabled {
+    opacity: 0.4; /* Opacidade menor para desabilitado */
+    cursor: not-allowed;
+  }
+  
+  .confirm-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 5px rgba(59, 130, 246, 0.6); /* Anel de foco mais proeminente */
+  }
+  
+  .next-button {
+    background-color: #10b981; /* Verde esmeralda */
+  }
+  
+  .next-button:hover {
+    background-color: #059669; /* Verde mais escuro no hover */
+    transform: scale(1.05);
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.15), 0 6px 8px rgba(0, 0, 0, 0.08);
+  }
+  
+  .next-button:active {
+    transform: scale(0.95);
+  }
+  
+  .next-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 5px rgba(16, 185, 129, 0.6);
+  }
+  
+  /* --- Mensagem Inicial --- */
+  .initial-message {
+    text-align: center;
+    color: #4a5568;
+    margin-top: 3.5rem;
+    padding: 2.5rem;
+    border: 2px dashed #9ca3af; /* Borda tracejada cinza */
+    border-radius: 1.25rem;
+    background-color: #f9fafb;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06);
+  }
+  
+  .initial-icon {
+    display: inline-block;
+    margin-bottom: 1rem;
+    font-size: 5rem; /* Ícone muito grande */
+    opacity: 0.6;
+  }
+  
+  .initial-title {
+    font-weight: 700; /* Bold */
+    color: #1f2937;
+    font-size: 1.75rem; /* Título inicial maior */
+  }
+  
+  .initial-description {
+    margin-top: 0.75rem;
+    font-size: 1.125rem;
+    color: #6b7280;
+  }
+  
+  /* --- Media Queries para Responsividade --- */
+  
+  /* Para telas menores que 768px (ex: tablets e celulares) */
+  @media (max-width: 768px) {
+    .simulado-container {
+      padding: 1.5rem; /* Reduz padding geral */
+      border-radius: 1rem; /* Reduz arredondamento */
+      max-width: 95%; /* Ocupa mais largura em telas menores */
+      margin: 1rem auto; /* Adiciona margem vertical e centraliza */
+    }
+  
+    .simulado-container:hover {
+      transform: translateY(0); /* Remove elevação no hover para toque */
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08), 0 5px 10px rgba(0, 0, 0, 0.05); /* Mantém sombra base */
+    }
+  
+    .simulado-title {
+      font-size: 2.5rem; /* Reduz o tamanho da fonte do título */
+      margin-bottom: 1rem;
+    }
+  
+    .simulado-description {
+      font-size: 1rem; /* Reduz o tamanho da fonte da descrição */
+      margin-bottom: 2rem;
+    }
+  
+    .upload-section {
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+  
+    .upload-label {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+  
+    .upload-icon {
+      font-size: 2rem;
+    }
+  
+    .upload-input::file-selector-button {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      margin-right: 1rem;
+    }
+  
+    .loading-message,
+    .error-message {
+      font-size: 1rem;
+      padding: 0.75rem;
+    }
+  
+    .loading-spinner,
+    .error-icon {
+      font-size: 1.25rem;
+    }
+  
+    .question-section {
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+  
+    .question-header {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+      flex-direction: column; /* Empilha o número da questão e o status */
+      align-items: flex-start; /* Alinha ao início */
+      gap: 0.5rem; /* Espaçamento entre eles */
+    }
+  
+    .question-number {
+      font-size: 1.35rem; /* Aumenta um pouco para se destacar */
+    }
+  
+    .feedback-status {
+      font-size: 0.875rem; /* Reduz um pouco */
+      padding: 0.25rem 0.6rem;
+    }
+  
+    .question-text {
+      font-size: 1.35rem; /* Reduz o texto da pergunta */
+      margin-bottom: 1.5rem;
+    }
+  
+    .options-container {
+      gap: 1rem; /* Reduz o espaçamento entre opções */
+    }
+  
+    .option-item {
+      padding: 1rem;
+      font-size: 1rem;
+    }
+  
+    .option-icon {
+      font-size: 1.25rem;
+    }
+  
+    .option-default:hover,
+    .option-selected,
+    .option-correct,
+    .option-incorrect {
+      transform: translateY(0); /* Remove leve levantamento no hover/seleção para toque */
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); /* Mantém sombra base */
+      box-shadow: none; /* Remove anéis de foco/status em telas menores para simplicidade */
+    }
+  
+    .action-buttons-container {
+      flex-direction: column; /* Empilha os botões verticalmente */
+      gap: 1rem; /* Espaçamento entre os botões */
+      margin-top: 2rem;
+    }
+  
+    .confirm-button,
+    .next-button {
+      width: 100%; /* Ocupa a largura total */
+      padding: 1rem 2rem;
+      font-size: 1.5rem;
+    }
+  
+    .confirm-button:hover,
+    .next-button:hover {
+      transform: translateY(0); /* Remove elevação no hover para toque */
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); /* Mantém sombra base */
+    }
+  
+    .confirm-button:focus,
+    .next-button:focus {
+      box-shadow: none; /* Remove anéis de foco */
+    }
+  
+    .initial-message {
+      margin-top: 2rem;
+      padding: 1.5rem;
+    }
+  
+    .initial-icon {
+      font-size: 4rem;
+    }
+  
+    .initial-title {
+      font-size: 1.5rem;
+    }
+  
+    .initial-description {
+      font-size: 1rem;
+    }
+  }
+  
