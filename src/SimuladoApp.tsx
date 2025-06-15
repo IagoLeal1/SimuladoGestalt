@@ -1,8 +1,27 @@
 // src/SimuladoApp.tsx
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import './SimuladoApp.css'; // Importa os estilos CSS
 import type { Pergunta } from './types'; // CORRIGIDO: Agora usa 'import type' para importação de tipo
+
+// Função auxiliar para embaralhar um array (algoritmo de Fisher-Yates)
+const shuffleArray = (array: Pergunta[]): Pergunta[] => {
+  const newArray = [...array]; // Cria uma cópia rasa para não modificar o array original
+  let currentIndex = newArray.length, randomIndex;
+
+  // Enquanto houver elementos para embaralhar.
+  while (currentIndex !== 0) {
+    // Escolhe um elemento restante.
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // E o troca com o elemento atual.
+    [newArray[currentIndex], newArray[randomIndex]] = [
+      newArray[randomIndex], newArray[currentIndex]];
+  }
+
+  return newArray;
+};
 
 // --- Questões de Gestalt-terapia hardcoded dos seus PDFs ---
 const initialPerguntas: Pergunta[] = [ // Adicionado tipagem Pergunta[]
@@ -372,7 +391,8 @@ const initialPerguntas: Pergunta[] = [ // Adicionado tipagem Pergunta[]
 ];
 
 const SimuladoApp = () => {
-  const [perguntas] = useState<Pergunta[]>(initialPerguntas); // Tipado para Pergunta[]
+  // Inicializamos as perguntas já embaralhadas na primeira vez
+  const [perguntas, setPerguntas] = useState<Pergunta[]>(() => shuffleArray(initialPerguntas)); // Tipado para Pergunta[]
   const [perguntaAtualIndex, setPerguntaAtualIndex] = useState<number>(0); // Tipado para number
   const [opcaoSelecionada, setOpcaoSelecionada] = useState<string | null>(null); // Tipado para string | null
   const [mostrandoFeedback, setMostrandoFeedback] = useState<boolean>(false); // Tipado para boolean
@@ -423,13 +443,15 @@ const SimuladoApp = () => {
     setRespostaCorretaFeedback(false);
     setAcertos(0);
     setSimuladoTerminado(false);
+    // Ao reiniciar, embaralha novamente as perguntas e atualiza o estado 'perguntas'
+    setPerguntas(shuffleArray(initialPerguntas));
   };
 
   const perguntaAtual = perguntas[perguntaAtualIndex];
 
   return (
     <div className="simulado-container">
-      <h1 className="simulado-title">📚 Simulado de Gestalt-terapia</h1>
+      <h1 className="simulado-title">Simulado de Gestalt-terapia</h1>
       <p className="simulado-description">Este simulado contém questões sobre Gestalt-terapia.</p>
 
       {simuladoTerminado ? (
