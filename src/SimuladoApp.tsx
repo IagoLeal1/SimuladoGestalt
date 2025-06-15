@@ -82,7 +82,7 @@ const initialPerguntas: Pergunta[] = [ // Adicionado tipagem Pergunta[]
       "b) Egotismo, caracterizado pela manipulação do ambiente para evitar o contato autêntico.",
       "c) Confluência, onde o cliente se funde com as expectativas do terapeuta para evitar o confronto.",
       "d) Desensibilização, um mecanismo de defesa que impede o cliente de sentir emoções intensas.",
-      "e) Bloqueio no ciclo de contato, especificamente na fase de contato, impedindo a plena experiência da emoção."
+      "e) Deflexão, mecanismo de defesa que se caracteriza pela desviação do contato."
     ],
     respostaCorreta: "e"
   },
@@ -136,18 +136,6 @@ const initialPerguntas: Pergunta[] = [ // Adicionado tipagem Pergunta[]
   },
   {
     id: 'es-q25',
-    questao: "O paradoxo da mudança na Gestalt-terapia sugere que a mudança ocorre não pela tentativa de ser diferente, mas pela aceitação do que se é. Isso implica que, em um processo terapêutico, o terapeuta deve:",
-    opcoes: [
-      "a) Incentivar o cliente a lutar contra seus padrões disfuncionais, buscando eliminá-los a todo custo.",
-      "b) Focar em técnicas de modificação de comportamento para que o cliente se torne o que ele idealiza.",
-      "c) Ajudar o cliente a aumentar a awareness de seus padrões atuais, permitindo que novas possibilidades surjam a partir dessa aceitação.",
-      "d) Direcionar o cliente para um futuro idealizado, desconsiderando sua experiência presente.",
-      "e) Ignorar as resistências do cliente, pois elas são obstáculos ao processo de mudança."
-    ],
-    respostaCorreta: "c"
-  },
-  {
-    id: 'es-q26',
     questao: "A relação dialógica na Gestalt-terapia é um encontro existencial entre terapeuta e cliente, pautado em princípios específicos. Qual dos princípios abaixo NÃO faz parte da relação dialógica na Gestalt-terapia?",
     opcoes: [
       "a) Inclusão: o terapeuta se coloca na experiência do cliente, sem julgamento, mas mantendo sua própria identidade.",
@@ -159,7 +147,7 @@ const initialPerguntas: Pergunta[] = [ // Adicionado tipagem Pergunta[]
     respostaCorreta: "c"
   },
   {
-    id: 'es-q27',
+    id: 'es-q26',
     questao: "O conceito de \"cliente em processo\" na Gestalt-terapia reflete a visão de que o ser humano está em constante movimento e transformação. Sobre o cliente em processo, é CORRETO afirmar que:",
     opcoes: [
       "a) O objetivo da terapia é levar o cliente a um estado final de equilíbrio e estabilidade, onde não há mais necessidade de mudança.",
@@ -171,7 +159,7 @@ const initialPerguntas: Pergunta[] = [ // Adicionado tipagem Pergunta[]
     respostaCorreta: "c"
   },
   {
-    id: 'es-q28',
+    id: 'es-q27',
     questao: "Em uma sessão, o cliente relata sentir-se \"dividido\" entre duas opções importantes em sua vida. O terapeuta, em vez de oferecer conselhos, convida o cliente a \"dar voz\" a cada uma das partes, utilizando a técnica da cadeira vazia. Essa intervenção do terapeuta está alinhada com qual aspecto da relação dialógica e do trabalho com o cliente em processo?",
     opcoes: [
       "a) A imposição de uma solução para o dilema do cliente, direcionando sua escolha.",
@@ -183,7 +171,7 @@ const initialPerguntas: Pergunta[] = [ // Adicionado tipagem Pergunta[]
     respostaCorreta: "c"
   },
   {
-    id: 'es-q29',
+    id: 'es-q28',
     questao: "Um cliente chega à terapia com uma queixa de falta de sentido na vida, expressando um sentimento de vazio existencial. O terapeuta gestaltista, ao invés de buscar uma causa para esse vazio, decide explorar a experiência presente do cliente, perguntando: \"Como é para você sentir esse vazio agora? Onde você o percebe no seu corpo?\". Essa abordagem reflete qual princípio da Gestalt-terapia?",
     opcoes: [
       "a) A busca pela etiologia dos sintomas no passado do cliente.",
@@ -195,7 +183,7 @@ const initialPerguntas: Pergunta[] = [ // Adicionado tipagem Pergunta[]
     respostaCorreta: "c"
   },
   {
-    id: 'es-q30',
+    id: 'es-q29',
     questao: "Ao final de uma sessão, o cliente expressa que se sente mais leve e com uma nova perspectiva sobre seu problema. O terapeuta, em vez de atribuir o mérito a si mesmo, responde: \"Percebo que você trabalhou muito hoje e que algo se moveu dentro de você. Como é para você reconhecer essa sua capacidade?\". A resposta do terapeuta demonstra:",
     opcoes: [
       "a) Uma atitude de superioridade, reforçando o papel de especialista.",
@@ -206,10 +194,8 @@ const initialPerguntas: Pergunta[] = [ // Adicionado tipagem Pergunta[]
     ],
     respostaCorreta: "b"
   },
-
-  // Do PDF: DOC-20250611-WA0021..pdf
   {
-    id: 'doc-q1',
+    id: 'doc-q30',
     questao: "Na Gestalt-terapia, o conceito de contato é central para a compreensão do funcionamento humano e do processo terapêutico. Sobre o contato e suas interrupções, assinale a alternativa CORRETA:",
     opcoes: [
       "a) A confluência é uma interrupção do contato caracterizada pela dificuldade em diferenciar-se do outro, resultando em uma fusão de fronteiras que impede a awareness das próprias necessidades.",
@@ -221,7 +207,7 @@ const initialPerguntas: Pergunta[] = [ // Adicionado tipagem Pergunta[]
     respostaCorreta: "a"
   },
   {
-    id: 'doc-q2',
+    id: 'doc-q31',
     questao: "O ciclo de contato na Gestalt-terapia descreve o processo dinâmico de formação e dissolução de figuras, essencial para a satisfação das necessidades do organismo. Analise as afirmativas a seguir sobre as fases do ciclo de contato:\nI. Na fase de pré-contato, o organismo percebe uma necessidade emergente, mas ainda não há um engajamento direto com o ambiente para satisfazê-la.\nII. A fase de contato pleno é caracterizada pela máxima excitação e pelo engajamento total do organismo com o ambiente, resultando na satisfação da necessidade.\nIII. O pós-contato é o momento de assimilação da experiência, onde a figura se dissolve e o organismo se retrai para um estado de equilíbrio, preparando-se para novas necessidades.\nIV. As interrupções no ciclo de contato ocorrem exclusivamente na fase de contato, impedindo que o indivíduo alcance a awareness necessária para a satisfação da necessidade.\nEstão CORRETAS apenas as afirmativas:",
     opcoes: [
       "a) I e II.",
@@ -233,7 +219,7 @@ const initialPerguntas: Pergunta[] = [ // Adicionado tipagem Pergunta[]
     respostaCorreta: "b"
   },
   {
-    id: 'doc-q3',
+    id: 'doc-q32',
     questao: "Um cliente em sessão de Gestalt-terapia relata uma situação em que se sente constantemente sobrecarregado pelas expectativas dos outros, sem conseguir expressar suas próprias opiniões. Ao ser questionado sobre o que sente, ele responde: \"Não sei, acho que é o que todo mundo sente, né?\". Essa fala pode ser interpretada como uma manifestação de qual interrupção do contato?",
     opcoes: [
       "a) Projeção.",
@@ -245,7 +231,7 @@ const initialPerguntas: Pergunta[] = [ // Adicionado tipagem Pergunta[]
     respostaCorreta: "c"
   },
   {
-    id: 'doc-q4',
+    id: 'doc-q33',
     questao: "Na perspectiva gestáltica, a fronteira de contato é o local onde o indivíduo se encontra com o ambiente, e é através dela que se dá o processo de contato. Sobre a fronteira de contato, é INCORRETO afirmar que:",
     opcoes: [
       "a) É um fenômeno dinâmico e flexível, que se forma e se dissolve constantemente no processo de contato.",
@@ -257,7 +243,7 @@ const initialPerguntas: Pergunta[] = [ // Adicionado tipagem Pergunta[]
     respostaCorreta: "e"
   },
   {
-    id: 'doc-q5',
+    id: 'doc-34',
     questao: "Considere a seguinte situação clínica: Um cliente, ao ser convidado pelo terapeuta a expressar sua raiva diretamente para a pessoa imaginária que o incomoda, começa a socar o travesseiro com força, mas com um sorriso no rosto. Essa manifestação pode ser um indicativo de qual interrupção do contato, e qual seria a intervenção mais adequada do terapeuta?",
     opcoes: [
       "a) Projeção; o terapeuta deve pedir ao cliente para descrever o que ele vê no travesseiro.",
@@ -269,7 +255,7 @@ const initialPerguntas: Pergunta[] = [ // Adicionado tipagem Pergunta[]
     respostaCorreta: "b"
   },
   {
-    id: 'doc-q6',
+    id: 'doc-35',
     questao: "O conceito de campo é fundamental na Gestalt-terapia, pois enfatiza a interdependência entre o organismo e o ambiente. Sobre o campo fenomenológico, assinale a alternativa INCORRETA:",
     opcoes: [
       "a) O campo é uma totalidade dinâmica, onde cada parte influencia e é influenciada pelas demais, não podendo ser compreendido isoladamente.",
@@ -281,7 +267,7 @@ const initialPerguntas: Pergunta[] = [ // Adicionado tipagem Pergunta[]
     respostaCorreta: "c"
   },
   {
-    id: 'doc-q7',
+    id: 'doc-36',
     questao: "O ajustamento criativo é a capacidade do organismo de se adaptar de forma flexível e inovadora às demandas do ambiente, mantendo sua integridade. Sobre o ajustamento criativo na Gestalt-terapia, é CORRETO afirmar que:",
     opcoes: [
       "a) É um processo que busca a eliminação de qualquer tipo de conflito ou tensão, visando um estado de homeostase estática.",
@@ -293,7 +279,7 @@ const initialPerguntas: Pergunta[] = [ // Adicionado tipagem Pergunta[]
     respostaCorreta: "c"
   },
   {
-    id: 'doc-q8',
+    id: 'doc-q37',
     questao: "Um cliente em terapia gestaltista relata que, apesar de desejar mudar de emprego, sente-se paralisado e incapaz de tomar qualquer atitude. Ele descreve seu ambiente de trabalho atual como \"seguro, mas sufocante\". Sob a ótica do campo e do ajustamento criativo, qual a melhor interpretação para essa situação?",
     opcoes: [
       "a) O cliente está em um estado de confluência com o ambiente de trabalho, o que impede a emergência de novas figuras.",
@@ -305,7 +291,7 @@ const initialPerguntas: Pergunta[] = [ // Adicionado tipagem Pergunta[]
     respostaCorreta: "c"
   },
   {
-    id: 'doc-q9',
+    id: 'doc-q38',
     questao: "O paradoxo da mudança na Gestalt-terapia afirma que a mudança ocorre quando nos tornamos o que somos, e não quando tentamos ser o que não somos. Essa afirmação implica que:",
     opcoes: [
       "a) A terapia deve focar em ensinar o cliente a ser diferente, incentivando-o a abandonar seus padrões atuais.",
@@ -317,7 +303,7 @@ const initialPerguntas: Pergunta[] = [ // Adicionado tipagem Pergunta[]
     respostaCorreta: "b"
   },
   {
-    id: 'doc-q10',
+    id: 'doc-q39',
     questao: "Em uma sessão, o terapeuta percebe que o cliente está constantemente se desculpando por suas falas e movimentos, mesmo quando não há motivo aparente. O terapeuta decide intervir, convidando o cliente a \"ser mais desculpador\" e a exagerar esse comportamento. Essa intervenção tem como objetivo principal:",
     opcoes: [
       "a) Reforçar o comportamento disfuncional do cliente para que ele perceba o quão inadequado é.",
@@ -329,7 +315,7 @@ const initialPerguntas: Pergunta[] = [ // Adicionado tipagem Pergunta[]
     respostaCorreta: "b"
   },
   {
-    id: 'doc-q11',
+    id: 'doc-q40',
     questao: "A relação dialógica é um pilar fundamental da Gestalt-terapia, caracterizada por um encontro autêntico entre terapeuta e cliente. Sobre a relação dialógica, assinale a alternativa CORRETA:",
     opcoes: [
       "a) A neutralidade do terapeuta é essencial para garantir a objetividade da relação, evitando qualquer tipo de envolvimento pessoal.",
@@ -341,7 +327,7 @@ const initialPerguntas: Pergunta[] = [ // Adicionado tipagem Pergunta[]
     respostaCorreta: "d"
   },
   {
-    id: 'doc-q12',
+    id: 'doc-q41',
     questao: "O conceito de \"cliente em processo\" na Gestalt-terapia enfatiza a natureza dinâmica e contínua da experiência humana e da mudança. Sobre o cliente em processo, é INCORRETO afirmar que:",
     opcoes: [
       "a) O cliente é visto como um ser em constante vir-a-ser, com potencial para o crescimento e a autorregulação.",
@@ -353,7 +339,7 @@ const initialPerguntas: Pergunta[] = [ // Adicionado tipagem Pergunta[]
     respostaCorreta: "b"
   },
   {
-    id: 'doc-q13',
+    id: 'doc-q42',
     questao: "Em uma sessão, o cliente expressa uma forte resistência em falar sobre um determinado assunto, mudando de tópico repetidamente. O terapeuta, em vez de insistir, decide focar na forma como o cliente está evitando o assunto, perguntando: \"Percebo que você está se esforçando para não falar sobre isso. O que acontece com você quando pensa em abordar esse tema?\". Essa intervenção do terapeuta reflete qual aspecto da relação dialógica e do trabalho com o cliente em processo?",
     opcoes: [
       "a) A imposição de uma agenda terapêutica, forçando o cliente a confrontar sua resistência.",
@@ -365,7 +351,7 @@ const initialPerguntas: Pergunta[] = [ // Adicionado tipagem Pergunta[]
     respostaCorreta: "c"
   },
   {
-    id: 'doc-q14',
+    id: 'doc-q43',
     questao: "Um cliente chega à terapia com uma queixa de ansiedade generalizada, sem conseguir identificar uma causa específica para seu sofrimento. O terapeuta gestaltista, ao invés de buscar um diagnóstico ou uma causa no passado, decide explorar a experiência presente da ansiedade no corpo do cliente, perguntando: \"Onde você sente essa ansiedade no seu corpo agora? Como ela se manifesta?\". Essa abordagem está alinhada com qual princípio da Gestalt-terapia?",
     opcoes: [
       "a) A busca pela etiologia dos sintomas no passado do cliente.",
@@ -377,7 +363,7 @@ const initialPerguntas: Pergunta[] = [ // Adicionado tipagem Pergunta[]
     respostaCorreta: "c"
   },
   {
-    id: 'doc-q15',
+    id: 'doc-q44',
     questao: "Ao final de uma sessão, um cliente expressa gratidão ao terapeuta, dizendo: \"Sinto que hoje eu realmente me conectei com algo dentro de mim que estava adormecido\". O terapeuta responde: \"Sim, percebo que você está mais presente e com uma energia diferente. Como é para você sentir isso agora?\". A resposta do terapeuta demonstra:",
     opcoes: [
       "a) Uma atitude de superioridade, reforçando o papel de especialista.",
