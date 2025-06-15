@@ -1,6 +1,6 @@
 // src/SimuladoApp.tsx
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './SimuladoApp.css'; // Importa os estilos CSS
 import type { Pergunta } from './types'; // CORRIGIDO: Agora usa 'import type' para importação de tipo
 
@@ -451,7 +451,7 @@ const SimuladoApp = () => {
 
   return (
     <div className="simulado-container">
-      <h1 className="simulado-title">Simulado de Gestalt-terapia</h1>
+      <h1 className="simulado-title">📚 Simulado de Gestalt-terapia</h1>
       <p className="simulado-description">Este simulado contém questões sobre Gestalt-terapia.</p>
 
       {simuladoTerminado ? (
